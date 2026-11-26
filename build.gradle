@@ -6,12 +6,16 @@ buildscript {
             url = "https://minecraftforge.net"
         }
         maven {
-            name = "jitpack"
-            url = "https://jitpack.io"
+            name = "wagyourtail"
+            url = "https://wagyourtail.xyz"
+        }
+        maven {
+            name = "wagyourtail-snapshots"
+            url = "https://wagyourtail.xyz"
         }
     }
     dependencies {
-        classpath 'com.github.asbyth:ForgeGradle:8708bf3e01'
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.1-SNAPSHOT'
     }
 }
 
