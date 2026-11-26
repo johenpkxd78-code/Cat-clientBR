@@ -1,10 +1,24 @@
 pluginManagement {
     repositories {
-        maven {
-            name = 'GTNH'
-            url = uri(['https:/', 'nexus.gtnewhorizons', 'com/repository/public/'].join('.').replace('https:/.' , 'https://'))
-        }
-        gradlePluginPortal()
         mavenCentral()
+        gradlePluginPortal()
+        maven {
+            name = 'Architectury'
+            url = uri(['https:/', 'maven.architectury', 'dev/'].join('.').replace('https:/.' , 'https://'))
+        }
+        maven {
+            name = 'Fabric'
+            url = uri(['https:/', 'maven.fabricmc', 'net/'].join('.').replace('https:/.' , 'https://'))
+        }
+        maven {
+            name = 'MinecraftForge'
+            url = uri(['https:/', 'maven.minecraftforge', 'net/'].join('.').replace('https:/.' , 'https://'))
+        }
+        maven {
+            name = 'Essential'
+            url = uri(['https:/', 'repo.essential', 'gg/repository/maven-public/'].join('.').replace('https:/.' , 'https://'))
+        }
     }
 }
+
+rootProject.name = 'CatClient'
