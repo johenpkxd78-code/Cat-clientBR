@@ -16,14 +16,4 @@ pluginManagement {
     }
 }
 
-dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.PREFER_PROJECT)
-    repositories {
-        mavenCentral()
-        maven { url = uri(['https:/', 'repo.spongepowered', 'org/maven/'].join('.').replace('https:/.' , 'https://')) }
-        maven { url = uri(['https:/', 'maven.minecraftforge', 'net/'].join('.').replace('https:/.' , 'https://')) }
-        maven { url = uri(['https:/', 'repo.essential', 'gg/repository/maven-public/'].join('.').replace('https:/.' , 'https://')) }
-    }
-}
-
 rootProject.name = 'CatClient'
