@@ -1,6 +1,10 @@
 pluginManagement {
     repositories {
         maven {
+            url = uri('https://' + 'maven.architectury.dev/')
+        }
+
+        maven {
             url = uri('https://' + 'repo.essential.gg/repository/maven-releases/')
         }
 
@@ -13,6 +17,16 @@ pluginManagement {
 
         maven {
             url = uri('https://' + 'maven.minecraftforge.net/')
+        }
+    }
+
+    resolutionStrategy {
+        eachPlugin {
+            if (requested.id.id == 'gg.essential.loom') {
+                useModule(
+                    "gg.essential:architectury-loom:${requested.version}"
+                )
+            }
         }
     }
 }
