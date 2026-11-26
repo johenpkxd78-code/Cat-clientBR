@@ -1,0 +1,30 @@
+name: Build CatClient 1.8.9
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar codigo
+        uses: actions/checkout@v4
+
+      - name: Configurar Java 8
+        uses: actions/setup-java@v4
+        with:
+          java-version: '8'
+          distribution: 'temurin'
+
+      - name: Compilar Mod
+        run: gradle build
+
+      - name: Salvar JAR
+        uses: actions/upload-artifact@v4
+        with:
+          name: CatClient-1.8.9
+          path: build/libs/*.jar
+          
