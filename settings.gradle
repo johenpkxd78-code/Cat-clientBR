@@ -19,6 +19,13 @@ pluginManagement {
             url = uri(['https:/', 'repo.essential', 'gg/repository/maven-public/'].join('.').replace('https:/.' , 'https://'))
         }
     }
+    resolutionStrategy {
+        eachPlugin {
+            if (requested.id.id == 'gg.essential.loom') {
+                useModule("gg.essential:architectury-loom:${requested.version}")
+            }
+        }
+    }
 }
 
 rootProject.name = 'CatClient'
