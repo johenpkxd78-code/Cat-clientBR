@@ -1,0 +1,16 @@
+[
+{
+  "modid": "catclient",
+  "name": "CatClient",
+  "description": "Client de Minecraft 1.8.9 Forge.",
+  "version": "1.0.0",
+  "mcversion": "1.8.9",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Johen"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
