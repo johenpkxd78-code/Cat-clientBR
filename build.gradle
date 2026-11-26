@@ -10,6 +10,12 @@ archivesBaseName = 'CatClient'
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(8)
 
+repositories {
+    mavenCentral()
+    maven { url = uri(['https:/', 'maven.minecraftforge', 'net/'].join('.').replace('https:/.' , 'https://')) }
+    maven { url = uri(['https:/', 'repo.essential', 'gg/repository/maven-public/'].join('.').replace('https:/.' , 'https://')) }
+}
+
 dependencies {
     minecraft 'com.mojang:minecraft:1.8.9'
     mappings 'de.oceanlabs.mcp:mcp_stable:22-1.8.9'
