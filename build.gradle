@@ -8,31 +8,7 @@ version = '1.0.0'
 group = 'com.catclient'
 archivesBaseName = 'CatClient'
 
-java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(8)
-    }
-}
-
-loom {
-    silentMojangMappingsLicense()
-    launchConfigs {
-        client {
-            arg('--tweakClass', 'net.minecraftforge.fml.common.launcher.FMLTweaker')
-        }
-    }
-    forge {
-        pack200Provider = new dev.architectury.pack200.java.Pack200Adapter()
-    }
-}
-
-repositories {
-    mavenCentral()
-    maven {
-        name = 'Essential'
-        url = uri(['https:/', 'repo.essential', 'gg/repository/maven-public/'].join('.').replace('https:/.' , 'https://'))
-    }
-}
+java.toolchain.languageVersion = JavaLanguageVersion.of(8)
 
 dependencies {
     minecraft 'com.mojang:minecraft:1.8.9'
@@ -40,11 +16,8 @@ dependencies {
     forge 'net.minecraftforge:forge:1.8.9-11.15.1.2318-1.8.9'
 }
 
-processResources {
-    inputs.property 'version', project.version
-    inputs.property 'mcversion', '1.8.9'
-
-    filesMatching('mcmod.info') {
-        expand 'version': project.version, 'mcversion': '1.8.9'
-    }
+loom {
+    silentMojangMappingsLicense()
+    launchConfigs.client.arg('--tweakClass', 'net.minecraftforge.fml.common.launcher.FMLTweaker')
+    forge.pack200Provider = new dev.architectury.pack200.java.Pack200Adapter()
 }
