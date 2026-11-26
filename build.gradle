@@ -15,7 +15,7 @@ minecraft {
 
 repositories {
     maven {
-        name = 'GTNH Maven'
-        url = 'https://nexus.' + '://gtnewhorizons.com'
+        name = 'GTNH'
+        url = uri(['https:/', 'nexus.gtnewhorizons', 'com/repository/public/'].join('.').replace('https:/.' , 'https://'))
     }
 }
