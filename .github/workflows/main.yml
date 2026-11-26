@@ -27,7 +27,7 @@ jobs:
           gradle-version: '8.5'
 
       - name: Compilar Mod
-        run: gradle build
+        run: gradle remapJar
 
       - name: Salvar JAR
         uses: actions/upload-artifact@v4
