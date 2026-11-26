@@ -1,21 +1,49 @@
 plugins {
     id 'java'
-    id 'com.gtnewhorizons.retrofuturagradle' version '1.4.9'
+    id 'gg.essential.loom' version '1.6.28'
 }
 
-version = "1.0.0"
-group = "com.catclient"
-archivesBaseName = "CatClient"
+version = '1.0.0'
+group = 'com.catclient'
+archivesBaseName = 'CatClient'
 
-minecraft {
-    mcVersion = '1.8.9'
-    mcpMappingChannel = 'stable'
-    mcpMappingVersion = '22'
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(8)
+    }
+}
+
+loom {
+    silentMojangMappingsLicense()
+    launchConfigs {
+        client {
+            arg('--tweakClass', 'net.minecraftforge.fml.common.launcher.FMLTweaker')
+        }
+    }
+    forge {
+        pack200Provider = new dev.architectury.pack200.java.Pack200Adapter()
+    }
 }
 
 repositories {
+    mavenCentral()
     maven {
-        name = 'GTNH'
-        url = uri(['https:/', 'nexus.gtnewhorizons', 'com/repository/public/'].join('.').replace('https:/.' , 'https://'))
+        name = 'Essential'
+        url = uri(['https:/', 'repo.essential', 'gg/repository/maven-public/'].join('.').replace('https:/.' , 'https://'))
+    }
+}
+
+dependencies {
+    minecraft 'com.mojang:minecraft:1.8.9'
+    mappings 'de.oceanlabs.mcp:mcp_stable:22-1.8.9'
+    forge 'net.minecraftforge:forge:1.8.9-11.15.1.2318-1.8.9'
+}
+
+processResources {
+    inputs.property 'version', project.version
+    inputs.property 'mcversion', '1.8.9'
+
+    filesMatching('mcmod.info') {
+        expand 'version': project.version, 'mcversion': '1.8.9'
     }
 }
