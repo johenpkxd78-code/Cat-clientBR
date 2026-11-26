@@ -16,6 +16,6 @@ minecraft {
 repositories {
     maven {
         name = 'GTNH Maven'
-        url = 'https://gtnewhorizons.com'
+        url = 'https://nexus.' + '://gtnewhorizons.com'
     }
 }
