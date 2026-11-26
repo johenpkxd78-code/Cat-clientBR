@@ -13,16 +13,18 @@ jobs:
       - name: Baixar codigo
         uses: actions/checkout@v4
 
-      - name: Configurar Java 8
+      - name: Configurar Java 17 e Java 8
         uses: actions/setup-java@v4
         with:
-          java-version: '8'
+          java-version: |
+            8
+            17
           distribution: 'temurin'
 
-      - name: Baixar Gradle 4.10.3
+      - name: Baixar Gradle 8.5
         uses: gradle/actions/setup-gradle@v4
         with:
-          gradle-version: '4.10.3'
+          gradle-version: '8.5'
 
       - name: Compilar Mod
         run: gradle build
