@@ -1,1 +1,11 @@
-rootProject.name = 'CatClient'
+pluginManagement {
+    repositories {
+        maven {
+            name = 'GTNH Maven'
+            url = 'https://gtnewhorizons.com'
+        }
+        gradlePluginPortal()
+        mavenCentral()
+    }
+}
+
