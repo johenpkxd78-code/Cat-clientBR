@@ -1,51 +1,21 @@
-buildscript {
-    repositories {
-        mavenCentral()
-        maven {
-            name = "forge"
-            url = "https://minecraftforge.net"
-        }
-        maven {
-            name = "wagyourtail"
-            url = "https://wagyourtail.xyz"
-        }
-        maven {
-            name = "wagyourtail-snapshots"
-            url = "https://wagyourtail.xyz"
-        }
-    }
-    dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:2.1-SNAPSHOT'
-    }
+plugins {
+    id 'java'
+    id 'com.gtnewhorizons.retrofuturagrandle' version '1.4.1'
 }
-
-apply plugin: 'net.minecraftforge.gradle.forge'
 
 version = "1.0.0"
 group = "com.catclient"
 archivesBaseName = "CatClient"
 
-sourceCompatibility = targetCompatibility = 1.8
-compileJava {
-    sourceCompatibility = targetCompatibility = 1.8
-}
-
 minecraft {
-    version = "1.8.9-11.15.1.2318-1.8.9"
-    runDir = "run"
-    mappings = "stable_22"
+    mcVersion = '1.8.9'
+    mcpMappingChannel = 'stable'
+    mcpMappingVersion = '22'
 }
 
-processResources {
-    inputs.property "version", project.version
-    inputs.property "mcversion", project.minecraft.version
-
-    from(sourceSets.main.resources.srcDirs) {
-        include 'mcmod.info'
-        expand 'version':project.version, 'mcversion':project.minecraft.version
-    }
-
-    from(sourceSets.main.resources.srcDirs) {
-        exclude 'mcmod.info'
+repositories {
+    maven {
+        name = 'GTNH Maven'
+        url = 'https://gtnewhorizons.com'
     }
 }
